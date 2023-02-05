@@ -12,17 +12,15 @@
             <th></th>
         </thead>
         <tbody>
-            @foreach ( $projects as $project )
                 <tr>
                     <td>{{$project->name}}</td>
                     <td>{{Str::limit( $project->description,50)}}</td>
                     <td>{{$project->cover_img}}</td>
                     <td><a href="{{$project->github_link}}">Visualizza la Repository</a></td>
                     <td>
-                        <a class="me-1" href="{{route("admin.projects.show",$project->id)}}">&#128065;</a>
+                        <a href="{{route("admin.projects.edit",$project->id)}}">&#9998;</a> 
                     </td>
                 </tr>
-                @endforeach
             </tbody>
     </table>
 </div>
