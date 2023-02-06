@@ -15,7 +15,7 @@
                 <tr>
                     <td>{{$project->name}}</td>
                     <td>{{Str::limit( $project->description,50)}}</td>
-                    <td>{{$project->cover_img}}</td>
+                    <td><img src="{{asset('storage/'. $project->cover_img)}}" alt=""></td>
                     <td><a href="{{$project->github_link}}">Visualizza la Repository</a></td>
                     <td>
                         <a href="{{route("admin.projects.edit",$project->id)}}">&#9998;</a> 

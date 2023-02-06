@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectsController extends Controller
 {
@@ -74,10 +75,12 @@ class ProjectsController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
+        $img_path =Storage::put('uploads',$data['cover_img']);
         $project = Project::FindOrFail($id);
 
         $project->name = $data["name"];
         $project->description = $data['description'];
+        $project->cover_img = $img_path;
         $project->github_link = $data['github_link'];
         $project->save();
 
